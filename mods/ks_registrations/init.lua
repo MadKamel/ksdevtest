@@ -6,7 +6,7 @@ mrg.stone = function(nodename, nodedata)
 		description = nodedata.description,
 		tiles = {"terrain."..nodename..".png"},
 		groups = nodedata.groups,
-		drops = "ks_minerals:"..nodename
+		drop = "ks_minerals:"..nodename.." 2"
 	})
 	minetest.register_craftitem(":ks_minerals:"..nodename, {
 		description = nodedata.itemdesc,
@@ -20,7 +20,7 @@ mrg.mineralore = function(basenode, mineralname, nodedata)
 		description = nodedata.description,
 		tiles = {"terrain."..basenode..".png^terrain."..mineralname.."_overlay.png"},
 		groups = nodedata.groups,
-		drops = "ks_minerals:"..mineralname
+		drop = "ks_minerals:"..mineralname
 	})
 end
 
