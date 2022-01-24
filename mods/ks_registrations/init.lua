@@ -72,6 +72,7 @@ mrg.mineralsheet = function(mineralname, nodedata)
 				{-0.5, -0.5, -0.5, 0.5, -6 / 16, 0.5},
 			},
 		},
+		buildable_to = true,
 		groups = nodedata.groups
 	})
 end
