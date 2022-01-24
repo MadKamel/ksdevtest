@@ -1,4 +1,4 @@
-mrg.mineral("bauxite", {
+mrg.basemineral("bauxite", {
 	itemdesc = "Bauxite",
 	groups = {bauxite = 1}
 })
