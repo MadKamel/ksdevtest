@@ -1,11 +1,19 @@
 mrg.mineral("bauxite", {
-	description = "Bauxite",
-	itemdesc = "Bauxite Ore",
-	groups = {bauxite = 1, chippable = 1}
+	itemdesc = "Bauxite",
+	groups = {bauxite = 1}
+})
+
+mrg.basemineral("alumina_powder", {
+	itemdesc = "Alumina Powder",
+	groups = {alumina = 1}
 })
 
 mrg.mineral("chalcocite", {
-	description = "Chalcocite",
-	itemdesc = "Chalcocite Ore",
-	groups = {chalcocite = 1, chippable = 1}
+	itemdesc = "Chalcocite",
+	groups = {chalcocite = 1}
+})
+
+mrg.mineralsheet("red_mud", {
+	description = "Red Mud ",
+	groups = {clay = 1, diggable = 1, falling_node = 1}
 })

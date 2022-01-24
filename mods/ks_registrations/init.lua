@@ -1,4 +1,5 @@
 mrg = {}
+utils = {}
 
 mrg.stone = function(nodename, nodedata)
 	minetest.register_node(":ks_terrain:"..nodename, {
@@ -29,9 +30,48 @@ mrg.mineral = function(mineralname, nodedata)
 		inventory_image = "minerals."..mineralname..".png",
 		wield_image = "minerals."..mineralname..".png",
 	})
-	minetest.register_node(":ks_minerals:"..mineralname.."_node", {
+	minetest.register_craftitem(":ks_minerals:"..mineralname.."_powder", {
+		description = nodedata.itemdesc.." Powder",
+		inventory_image = "minerals."..mineralname.."_powder.png",
+		wield_image = "minerals."..mineralname.."_powder.png",
+	})
+end
+
+mrg.basemineral = function(mineralname, nodedata)
+	minetest.register_craftitem(":ks_minerals:"..mineralname, {
+		description = nodedata.itemdesc,
+		inventory_image = "minerals."..mineralname..".png",
+		wield_image = "minerals."..mineralname..".png",
+	})
+end
+
+mrg.mineralnode = function(mineralname, nodedata)
+	minetest.register_node(":ks_minerals:"..mineralname, {
 		description = nodedata.description,
-		tiles = {"minerals."..mineralname.."_node.png"},
+		tiles = {"minerals."..mineralname..".png"},
+	})
+end
+
+mrg.mineralsheet = function(mineralname, nodedata)
+	minetest.register_node(":ks_minerals:"..mineralname, {
+		description = nodedata.description,
+		tiles = {"minerals."..mineralname.."_sheet.png"},
+		wield_image = "minerals."..mineralname..".png",
+		inventory_image = "minerals."..mineralname..".png",
+		drawtype = "nodebox",
+		paramtype = "light",
+		node_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, -0.5, 0.5, -0.25, 0.5},
+			},
+		},
+		collision_box = {
+			type = "fixed",
+			fixed = {
+				{-0.5, -0.5, -0.5, 0.5, -6 / 16, 0.5},
+			},
+		},
 		groups = nodedata.groups
 	})
 end
@@ -52,6 +92,39 @@ mrg.subsoil = function(dirttype, nodedata)
 	})
 end
 
+mrg.basegrass = function(grassname, nodedata)
+	minetest.register_node(":ks_flora:"..grassname.."_0", {
+		description = nodedata.seeddesc,
+		drawtype = "plantlike",
+		paramtype = "light",
+		tiles = {"flora."..grassname.."_0.png"},
+		wield_image = "flora."..grassname.."_seeds.png",
+		inventory_image = "flora."..grassname.."_seeds.png",
+		groups = nodedata.groups
+	})
+end
+
 mrg.basetool = function(toolhead, toolbase, tooldata)
 	-- pass
+end
+
+
+
+-- Now for utils library. Hooray, me.
+
+utils.list_has_item = function(list, item) -- This loops through an array to find if there is an item in it that matches the request.
+    for index, value in ipairs(list) do
+        if value == item then
+            return true
+        end
+    end
+    return false
+end
+
+utils.get_index_from_list = function(list, item) -- This returns the first item in a list with a value of 'item'
+    local index={}
+    for k,v in pairs(list) do
+        index[v]=k
+    end
+    return index[item]
 end
