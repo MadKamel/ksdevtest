@@ -45,7 +45,7 @@ minetest.register_node("ks_metallurgy:grinder", {
 		inv:set_size("input", 1*1)
 		inv:set_size("output", 2*1)
 		meta:set_string("infotext", "Grinder")
-		local formspec = "formspec_version[4]size[11,8.5]label[5.9,0.3;Output]list[current_name;input;0.6,0.6;1,1;0]list[current_name;output;5.3,0.6;2,1;0]button[1.9,0.3;3,1.5;upgrade;Grind]list[current_player;main;0.6,3.5;8,4;0]label[0.7,0.3;Input]"
+		local formspec = "size[8.41,6.62]label[4.42,-0.32;Output]list[current_name;input;0.18,0.2;1.0,1.0;0]list[current_name;output;3.94,0.2;2.0,1.0;0]image_button[1.22,-0.07;2.61,1.43;blank.png;upgrade;Grind]list[current_player;main;0.18,2.71;8.0,1.0;0]list[current_player;main;0.18,3.79;8.0,1.0;8]list[current_player;main;0.18,4.88;8.0,1.0;16]list[current_player;main;0.18,5.96;8.0,1.0;24]label[0.26,-0.32;Input]"
 		meta:set_string("formspec", formspec)
 	end,
 	on_receive_fields = function(pos, formname, fields, player)
