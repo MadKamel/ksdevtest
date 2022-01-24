@@ -2,8 +2,8 @@ grinding_recipes = {}
 grinding_results = {}
 grinding_recipes[1] = "ks_minerals:bauxite"
 grinding_results[1] = {
-	"ks_minerals:alumina_powder 2",
-	"ks_minerals:red_mud 3"
+	ItemStack("ks_minerals:alumina_powder 2"),
+	ItemStack("ks_minerals:red_mud 3")
 }
 		
 grind_by_list = function(inv, item)
@@ -14,8 +14,8 @@ grind_by_list = function(inv, item)
 	inv:set_stack('input', 1, {})
 	minetest.log(recipe_number)
 	--minetest.log(grinding_results[recipe_number][1])
-	inv:set_stack('output', 1, {name=grinding_results[recipe_number][1]})
-	inv:set_stack('output', 2, {name=grinding_results[recipe_number][2]})
+	inv:set_stack('output', 1, grinding_results[recipe_number][1])
+	inv:set_stack('output', 2, grinding_results[recipe_number][2])
 end
 
 grind = function(pos)
