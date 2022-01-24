@@ -128,3 +128,25 @@ utils.get_index_from_list = function(list, item) -- This returns the first item 
     end
     return index[item]
 end
+
+
+
+
+-- Init player hand
+minetest.register_item(':', {
+    type = 'none',
+    wield_image = 'hand.png',
+    wield_scale = {x = 0.5, y = 1, z = 4},
+    tool_capabilities = {
+        full_punch_interval = 0.9,
+        max_drop_level = 0,
+        groupcaps = {
+            diggable = {
+                times = {[1] = 3.00},
+                uses = 0,
+                maxlevel = 1,
+            }
+        },
+        damage_groups = {fleshy = 1},
+    }
+})

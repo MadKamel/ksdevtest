@@ -11,11 +11,11 @@ grind_by_list = function(inv, item)
 	if recipe_number == nil then
 		return false
 	end
-	inv:set_stack('input', 1, {})
-	minetest.log(recipe_number)
+	inv:remove_item('input', ItemStack(grinding_recipes[recipe_number]))
+	--minetest.log(recipe_number)
 	--minetest.log(grinding_results[recipe_number][1])
-	inv:set_stack('output', 1, grinding_results[recipe_number][1])
-	inv:set_stack('output', 2, grinding_results[recipe_number][2])
+	inv:add_item('output', grinding_results[recipe_number][1])
+	inv:add_item('output', grinding_results[recipe_number][2])
 end
 
 grind = function(pos)
