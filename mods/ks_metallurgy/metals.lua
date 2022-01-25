@@ -21,3 +21,11 @@ mrg.basemetal("uranium", "ingot", {
 mrg.basemetal("uranium", "diabolo", {
 	description = "Uranium Diabolo"
 })
+
+mrg.basemetal("alclad", "ingot", {
+	description = "Alclad Aluminium Ingot"
+})
+
+mrg.basemetal("alclad", "diabolo", {
+	description = "Alclad Aluminium Diabolo"
+})

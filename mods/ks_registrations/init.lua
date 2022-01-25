@@ -158,6 +158,14 @@ utils.get_index_from_list = function(list, item) -- This returns the first item 
     return index[item]
 end
 
+utils.get_index_from_list_with_list = function(list, item) -- This returns the first item in a list with a value of 'item'
+	for key, value in pairs(list) do
+		if value[1] == item[1] and value[2] == item[2] then
+			return key
+		end
+	end
+end
+
 
 
 
