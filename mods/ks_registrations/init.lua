@@ -106,9 +106,44 @@ mrg.basegrass = function(grassname, nodedata)
 end
 
 mrg.basetool = function(toolhead, toolbase, tooldata)
-	-- pass
+	minetest.register_tool("ks_tools:devtool", {
+		description = "Developer Tool",
+		inventory_image = "devtool.png",
+		tool_capabilities = {
+			full_punch_interval = 0.1,
+			max_drop_level=3,
+			groupcaps={
+				chippable={times={[1]=0.0, [2]=0.0, [3]=0.0}, maxlevel=255},
+				diggable={times={[1]=0.0, [2]=0.0, [3]=0.0}, maxlevel=255},
+				choppable={times={[1]=0.0, [2]=0.0, [3]=0.0}, maxlevel=255},
+				sliceable={times={[1]=0.0, [2]=0.0, [3]=0.0}, maxlevel=255},
+				dig_immediate={times={[1]=0.0, [2]=0.0, [3]=0.0}, maxlevel=255},
+				grabbable={times={[1]=0.0}}
+			},
+			damage_groups = {fleshy=100},
+		},
+	})
 end
 
+
+
+-- Register metallurgy-related craftitems and nodes.
+
+mrg.basemold = function(moldname, nodedata)
+	minetest.register_craftitem(":ks_metallurgy:"..moldname.."_mold", {
+		description = nodedata.description,
+		wield_image = "metallurgy."..moldname.."_mold.png",
+		inventory_image = "metallurgy."..moldname.."_mold.png"
+	})
+end
+
+mrg.basemetal = function(metalname, metaltype, nodedata)
+	minetest.register_craftitem(":ks_metallurgy:"..metalname.."_"..metaltype, {
+		description = nodedata.description,
+		wield_image = "metallurgy."..metalname.."_"..metaltype..".png",
+		inventory_image = "metallurgy."..metalname.."_"..metaltype..".png"
+	})
+end
 
 
 -- Now for utils library. Hooray, me.
