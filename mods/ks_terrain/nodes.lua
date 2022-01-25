@@ -39,7 +39,7 @@ mrg.mineralore("dolomite", "chalcocite", {
 })
 mrg.mineralore("dolomite", "uranium", {
 	description = "Dolomite Stone with Uranium",
-	groups = {stone = 1, chippable = 1}
+	groups = {stone = 1, chippable = 1, radioactive = 1}
 })
 mrg.mineralore("aragonite", "bauxite", {
 	description = "Aragonite Stone with Bauxite",
@@ -51,7 +51,7 @@ mrg.mineralore("aragonite", "chalcocite", {
 })
 mrg.mineralore("aragonite", "uranium", {
 	description = "Aragonite Stone with Uranium",
-	groups = {stone = 1, chippable = 1}
+	groups = {stone = 1, chippable = 1, radioactive = 1}
 })
 
 
