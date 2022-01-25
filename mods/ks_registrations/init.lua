@@ -105,6 +105,27 @@ mrg.basegrass = function(grassname, nodedata)
 	})
 end
 
+mrg.tree = function(nodename, nodedata)
+	minetest.register_node(":ks_flora:"..nodename.."_trunk", {
+		description = nodedata.trunk_description,
+		tiles = {"flora."..nodename.."_log.png"},
+		groups = nodedata.groups,
+		drop = "ks_flora:"..nodename.."_log"
+	})
+	minetest.register_node(":ks_flora:"..nodename.."_log", {
+		description = nodedata.description,
+		tiles = {"flora."..nodename.."_log.png"},
+		groups = nodedata.groups
+	})
+	minetest.register_node(":ks_flora:"..nodename.."_leaves", {
+		description = nodedata.leaf_description,
+		tiles = {"flora."..nodename.."_leaves.png"},
+		paramtype = "light",
+		drawtype = "allfaces_optional",
+		groups = nodedata.leaf_groups
+	})
+end
+
 mrg.basetool = function(toolhead, toolbase, tooltype, tooldata, tooldefs)
 	minetest.register_tool("ks_tools:"..toolhead.."_"..toolbase.."_"..tooltype, {
 		description = tooldefs.description,

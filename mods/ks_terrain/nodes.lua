@@ -9,6 +9,11 @@ mrg.stone("aragonite", {
 	itemdesc = "Aragonite Rock",
 	groups = {stone = 1, chippable = 1}
 })
+mrg.stone("feldspar", {
+	description = "Feldspar Stone",
+	itemdesc = "Feldspar Rock",
+	groups = {stone = 1, chippable = 1}
+})
 
 
 
@@ -41,6 +46,7 @@ mrg.mineralore("dolomite", "uranium", {
 	description = "Dolomite Stone with Uranium",
 	groups = {stone = 1, chippable = 1, radioactive = 1}
 })
+
 mrg.mineralore("aragonite", "bauxite", {
 	description = "Aragonite Stone with Bauxite",
 	groups = {stone = 1, chippable = 1}
@@ -51,6 +57,19 @@ mrg.mineralore("aragonite", "chalcocite", {
 })
 mrg.mineralore("aragonite", "uranium", {
 	description = "Aragonite Stone with Uranium",
+	groups = {stone = 1, chippable = 1, radioactive = 1}
+})
+
+mrg.mineralore("feldspar", "bauxite", {
+	description = "Feldspar Stone with Bauxite",
+	groups = {stone = 1, chippable = 1}
+})
+mrg.mineralore("feldspar", "chalcocite", {
+	description = "Feldspar Stone with Chalcocite",
+	groups = {stone = 1, chippable = 1}
+})
+mrg.mineralore("feldspar", "uranium", {
+	description = "Feldspar Stone with Uranium",
 	groups = {stone = 1, chippable = 1, radioactive = 1}
 })
 

@@ -20,10 +20,20 @@ minetest.register_biome({
 -- Ore generation
 
 minetest.register_ore({
-	ore_type = "sheet",
-	ore = "ks_terrain:aragonite",
+	ore_type = "stratum",
+	ore = "ks_terrain:feldspar",
 	wherein = "ks_terrain:dolomite",
-	clust_size = 16
+	y_min = -31000,
+	y_max = 16,
+})
+
+minetest.register_ore({
+	ore_type = "scatter",
+	ore = "ks_terrain:dolomite",
+	wherein = "ks_terrain:feldspar",
+	clust_scarcity = 4*4*4,
+	clust_num_ores = 16,
+	clust_size = 5,
 })
 
 minetest.register_ore({
