@@ -55,5 +55,5 @@ minetest.register_node("ks_metallurgy:grinder", {
 			grind(pos)
 		end
 	end,
-	groups = {oddly_breakable_by_hand=3}
+	groups = {chippable=1}
 })

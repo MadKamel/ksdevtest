@@ -15,3 +15,9 @@ minetest.register_tool("ks_tools:devtool", {
 		damage_groups = {fleshy=100},
 	},
 })
+
+mrg.basetool("aluminium", "wood", "pick", {
+	chippable={times={[1]=3.0, [2]=6.0, [3]=9.0}, maxlevel=1}
+}, {
+	description = "Aluminium Pickaxe"
+})

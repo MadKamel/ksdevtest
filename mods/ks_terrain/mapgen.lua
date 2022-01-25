@@ -14,3 +14,32 @@ minetest.register_biome({
 	heat_point = 25,
 	humidity_point = 25
 })
+
+
+
+-- Ore generation
+
+minetest.register_ore({
+	ore_type = "sheet",
+	ore = "ks_terrain:aragonite",
+	wherein = "ks_terrain:dolomite",
+	clust_size = 16
+})
+
+minetest.register_ore({
+	ore_type = "scatter",
+	ore = "ks_terrain:dolomite_bauxite",
+	wherein = "ks_terrain:dolomite",
+	clust_scarcity = 8*8*8,
+	clust_num_ores = 8,
+	clust_size = 4,
+})
+
+minetest.register_ore({
+	ore_type = "scatter",
+	ore = "ks_terrain:dolomite_chalcocite",
+	wherein = "ks_terrain:dolomite",
+	clust_scarcity = 16*16*16,
+	clust_num_ores = 18,
+	clust_size = 5,
+})

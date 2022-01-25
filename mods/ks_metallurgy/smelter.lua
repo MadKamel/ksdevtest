@@ -51,8 +51,8 @@ smelt = function(pos)
 end
 
 minetest.register_node("ks_metallurgy:smelter", {
-	description = "Smelter",
-	tiles = {"smelter.png"},
+	description = "Metal Caster",
+	tiles = {"caster.png"},
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		local name = ""
