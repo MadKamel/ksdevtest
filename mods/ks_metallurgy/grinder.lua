@@ -10,6 +10,11 @@ grinding_results[2] = {
 	ItemStack("ks_minerals:chalcocite_powder"),
 	ItemStack("")
 }
+grinding_recipes[3] = "ks_minerals:uranium"
+grinding_results[3] = {
+	ItemStack("ks_minerals:uranium_powder"),
+	ItemStack("")
+}
 		
 grind_by_list = function(inv, item)
     	recipe_number = utils.get_index_from_list(grinding_recipes, item)

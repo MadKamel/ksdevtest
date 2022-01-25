@@ -8,6 +8,10 @@ smelting_recipes[2] = "ks_minerals:chalcocite_powder"
 smelting_results[2] = {
 	"ks_metallurgy:copper_"
 }
+smelting_recipes[3] = "ks_minerals:uranium_powder"
+smelting_results[3] = {
+	"ks_metallurgy:uranium_"
+}
 		
 smelt_by_list = function(inv, item)
     	recipe_number = utils.get_index_from_list(smelting_recipes, item)
