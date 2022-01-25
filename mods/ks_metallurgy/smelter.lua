@@ -27,7 +27,7 @@ smelt_by_list = function(inv, item)
 	elseif inv:get_stack('mold', 1):get_name() == "ks_metallurgy:diabolo_mold" then
 		moldtype = "diabolo"
 
-	else
+	else	
 		return false
 	end
 
@@ -35,7 +35,7 @@ smelt_by_list = function(inv, item)
 
 	inv:remove_item('input', ItemStack(smelting_recipes[recipe_number]))
 	inv:remove_item('mold', ItemStack(inv:get_stack('mold', 1):get_name()))
-	--minetest.log(recipe_number)
+	minetest.log(moldtype)
 	--minetest.log(smelting_results[recipe_number][1])
 	inv:add_item('output', ItemStack(smelting_results[recipe_number][1]..moldtype))
 end
@@ -48,7 +48,6 @@ smelt = function(pos)
 		return false
 	else
 		local item = inv:get_stack('input', 1)
-		minetest.log(item:get_name())
 		
 		smelt_by_list(inv, item:get_name())
 	end
@@ -64,15 +63,15 @@ minetest.register_node("ks_metallurgy:smelter", {
 		inv:set_size("input", 1*1)
 		inv:set_size("output", 1*1)
 		inv:set_size("mold", 1*1)
-		meta:set_string("infotext", "Smelter")
+		meta:set_string("infotext", "Metal Caster")
 		local formspec = "formspec_version[4]size[11,8.5]label[5.3,0.3;Output]list[current_name;input;0.6,0.6;1,1;0]list[current_name;output;5.3,0.6;1,1;0]button[1.9,0.3;3,1.5;upgrade;Cast]list[current_player;main;0.6,3.5;8,4;0]label[0.7,0.3;Input]list[current_name;mold;6.8,0.6;1,1;0]label[6.9,0.3;Mold]"
 
 		meta:set_string("formspec", formspec)
 	end,
 	on_receive_fields = function(pos, formname, fields, player)
-		minetest.log(dump(fields))
 		if fields.upgrade then
 			smelt(pos)
+			minetest.log("Cast done.")
 		end
 	end,
 	groups = {chippable = 1}

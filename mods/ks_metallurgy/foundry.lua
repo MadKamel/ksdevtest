@@ -7,7 +7,7 @@ foundry_recipes[1] = {
 foundry_results[1] = "ks_metallurgy:alclad_"
 
 		
-smelt_by_list = function(inv, item, item2)
+cast_by_list = function(inv, item, item2)
 	items = {item, item2}
 	--minetest.log(dump(items))
     	recipe_number = utils.get_index_from_list_with_list(foundry_recipes, items)
@@ -38,7 +38,7 @@ smelt_by_list = function(inv, item, item2)
 	inv:add_item('output', ItemStack(foundry_results[recipe_number]..moldtype))
 end
 
-smelt = function(pos)
+cast = function(pos)
 	local inv = minetest.get_meta(pos):get_inventory()
 	if inv:is_empty('input') then
 		return false
@@ -49,7 +49,7 @@ smelt = function(pos)
 		local item2 = inv:get_stack('input', 2)
 		minetest.log(item:get_name())
 		
-		smelt_by_list(inv, item:get_name(), item2:get_name())
+		cast_by_list(inv, item:get_name(), item2:get_name())
 	end
 end
 
@@ -71,7 +71,7 @@ minetest.register_node("ks_metallurgy:foundry", {
 	on_receive_fields = function(pos, formname, fields, player)
 		minetest.log(dump(fields))
 		if fields.upgrade then
-			smelt(pos)
+			cast(pos)
 		end
 	end,
 	groups = {chippable = 1}
