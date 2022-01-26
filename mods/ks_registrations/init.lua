@@ -195,6 +195,8 @@ utils.get_index_from_list_with_list = function(list, item) -- This returns the f
 	for key, value in pairs(list) do
 		if value[1] == item[1] and value[2] == item[2] then
 			return key
+		elseif value[1] == item[2] and value[2] == item[1] then
+			return key
 		end
 	end
 end

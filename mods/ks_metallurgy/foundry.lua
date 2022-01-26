@@ -5,6 +5,12 @@ foundry_recipes[1] = {
 	"ks_minerals:alumina_powder"
 }
 foundry_results[1] = "ks_metallurgy:alclad_"
+foundry_recipes[2] = {
+	"ks_minerals:chalcocite_powder",
+	"ks_minerals:uranium_powder"
+}
+foundry_results[2] = "ks_metallurgy:uranium_bronze_"
+
 
 		
 cast_by_list = function(inv, item, item2)
