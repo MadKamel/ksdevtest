@@ -122,7 +122,19 @@ mrg.tree = function(nodename, nodedata)
 		tiles = {"flora."..nodename.."_leaves.png"},
 		paramtype = "light",
 		drawtype = "allfaces_optional",
-		groups = nodedata.leaf_groups
+		groups = nodedata.leaf_groups,
+		drop = {
+			max_items = 2,
+			items = {
+				{items = {"ks_flora:"..nodename.."_stick"}, rarity = 3},
+				{items = {"ks_flora:"..nodename.."_stick"}, rarity = 6},
+				{items = {"ks_flora:"..nodename.."_stick"}, rarity = 9}
+			}
+		}
+	})
+	minetest.register_craftitem(":ks_flora:"..nodename.."_stick", {
+		description = nodedata.stick_description,
+		inventory_image = "flora."..nodename.."_stick.png"
 	})
 end
 
@@ -190,21 +202,27 @@ end
 
 
 
--- Init player hand
+-- Register the hand.
+
 minetest.register_item(':', {
-    type = 'none',
-    wield_image = 'hand.png',
-    wield_scale = {x = 0.5, y = 1, z = 4},
-    tool_capabilities = {
-        full_punch_interval = 0.9,
-        max_drop_level = 0,
-        groupcaps = {
-            diggable = {
-                times = {[1] = 3.00},
-                uses = 0,
-                maxlevel = 1,
-            }
-        },
-        damage_groups = {fleshy = 1},
-    }
+	type = 'none',
+	wield_image = 'hand.png',
+	wield_scale = {x = 0.5, y = 1, z = 4},
+	tool_capabilities = {
+		full_punch_interval = 0.9,
+		max_drop_level = 0,
+		groupcaps = {
+			diggable = {
+				times = {[1] = 4.00},
+				uses = 0,
+				maxlevel = 1,
+			},
+			sliceable = {
+				times = {[1] = 1.00},
+				uses = 0,
+				maxlevel = 1,
+			}
+		},
+		damage_groups = {fleshy = 1},
+	}
 })

@@ -16,7 +16,7 @@ minetest.register_tool("ks_tools:devtool", {
 	},
 })
 
-mrg.basetool("aluminium", "wood", "pick", {
+mrg.basetool("aluminium", "maple", "pick", {
 	chippable={times={[1]=3.0, [2]=6.0, [3]=9.0}, maxlevel=1}
 }, {
 	description = "Aluminium Pickaxe"

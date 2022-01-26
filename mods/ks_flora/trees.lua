@@ -2,6 +2,7 @@ mrg.tree("maple", {
 	description = "Maple Log",
 	trunk_description = "Maple Trunk",
 	leaf_description = "Maple Leaves",
+	stick_description = "Maple Stick",
 	groups = {choppable = 1},
 	leaf_groups = {sliceable = 1}
 })
