@@ -93,18 +93,6 @@ mrg.subsoil = function(dirttype, nodedata)
 	})
 end
 
-mrg.basegrass = function(grassname, nodedata)
-	minetest.register_node(":ks_flora:"..grassname.."_0", {
-		description = nodedata.seeddesc,
-		drawtype = "plantlike",
-		paramtype = "light",
-		tiles = {"flora."..grassname.."_0.png"},
-		wield_image = "flora."..grassname.."_seeds.png",
-		inventory_image = "flora."..grassname.."_seeds.png",
-		groups = nodedata.groups
-	})
-end
-
 mrg.tree = function(nodename, nodedata)
 	minetest.register_node(":ks_flora:"..nodename.."_trunk", {
 		description = nodedata.trunk_description,
@@ -171,6 +159,147 @@ mrg.basemetal = function(metalname, metaltype, nodedata)
 	})
 end
 
+
+
+-- This one is pretty long. It registers a flower.
+mrg.baseflower = function(flowername, nodedata)
+	local f_groups = {attached_node = 1, snappy = 3}
+
+	minetest.register_node(":ks_flora:"..flowername.."_0", {
+		description = nodedata.description.." Seeds",
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {flowername.."_0.png"},
+		inventory_image = flowername.."_seeds.png",
+		wield_image = flowername.."_seeds.png",
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		groups = f_groups,
+		sounds = default.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 3 / 16, 2 / 16},
+		},
+		drop = {}
+	})
+	
+	minetest.register_node(":ks_flora:"..flowername.."_1", {
+		description = nodedata.description.." Sprout",
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {flowername.."_1.png"},
+		inventory_image = flowername.."_1.png",
+		wield_image = flowername.."_1.png",
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		groups = f_groups,
+		sounds = default.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 3 / 16, 2 / 16},
+		},
+		drop = {}
+	})
+	
+	minetest.register_node(":ks_flora:"..flowername.."_2", {
+		description = "Young "..nodedata.description,
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {flowername.."_2.png"},
+		inventory_image = flowername.."_2.png",
+		wield_image = flowername.."_2.png",
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		groups = f_groups,
+		sounds = default.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 3 / 16, 2 / 16},
+		},
+		drop = {}
+	})
+	
+	minetest.register_node(":ks_flora:"..flowername.."_3", {
+		description = "Young "..nodedata.description,
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {flowername.."_3.png"},
+		inventory_image = flowername.."_3.png",
+		wield_image = flowername.."_3.png",
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		groups = f_groups,
+		sounds = default.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 3 / 16, 2 / 16},
+		},
+		drop = {}
+	})
+	
+	minetest.register_node(":ks_flora:"..flowername.."_4", {
+		description = "Mature "..nodedata.description,
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {flowername.."_4.png"},
+		inventory_image = flowername.."_4.png",
+		wield_image = flowername.."_4.png",
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		groups = f_groups,
+		sounds = default.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 3 / 16, 2 / 16},
+		},
+		after_dig_node = function(pos, oldnode, oldmetadata, digger)
+			minetest.set_node(pos, {name = "ks_flora:"..flowername.."_picked"})
+		end,
+		drop = {
+			max_items = 2,
+			items = {
+				{items = {"ks_flora:"..flowername.."_0"}},
+				{items = {"ks_flora:"..flowername.."_flower"}}
+			}
+		}
+	})
+	
+	minetest.register_node(":ks_flora:"..flowername.."_picked", {
+		description = "Picked "..nodedata.description,
+		drawtype = "plantlike",
+		waving = 1,
+		tiles = {"flora."..flowername.."_picked.png"},
+		inventory_image = "flora."..flowername.."_picked.png",
+		wield_image = "flora."..flowername.."_picked.png",
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		buildable_to = true,
+		groups = f_groups,
+		sounds = default.node_sound_leaves_defaults(),
+		selection_box = {
+			type = "fixed",
+			fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 3 / 16, 2 / 16},
+		},
+	})
+	
+	minetest.register_craftitem(":ks_flora:"..flowername.."_flower", {
+		description = nodedata.description.." Flower",
+		inventory_image = "flora."..flowername.."_flower.png",
+	})
+end
+
+-- That was pretty long. Also pretty useful. Kind of.
 
 -- Now for utils library. Hooray, me.
 
